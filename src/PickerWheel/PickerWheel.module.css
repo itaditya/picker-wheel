@@ -1,0 +1,78 @@
+.pickerWheel {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  width: var(--pw-diameter);
+  height: var(--pw-diameter);
+  place-items: center;
+}
+
+.itemsGroup,
+.dividerGroup {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.itemsGroup {
+  position: relative;
+  height: 100%;
+}
+
+.item {
+  position: absolute;
+}
+
+.activeItem {
+  background-color: green;
+}
+
+.item:nth-of-type(1) {
+  top: calc(var(--pw-diameter) / 3);
+  left: calc(var(--pw-diameter) / 4);
+}
+
+.item:nth-of-type(2) {
+  top: calc(var(--pw-diameter) / 8);
+  left: calc(var(--pw-diameter) / 8);
+}
+
+.item:nth-of-type(3) {
+  top: calc(var(--pw-diameter) / 8);
+  right: calc(var(--pw-diameter) / 8);
+}
+
+.item:nth-of-type(4) {
+  top: calc(var(--pw-diameter) / 3);
+  right: calc(var(--pw-diameter) / 4);
+}
+
+.item:nth-of-type(5) {
+  bottom: calc(var(--pw-diameter) / 3);
+  right: calc(var(--pw-diameter) / 4);
+}
+
+.item:nth-of-type(6) {
+  bottom: calc(var(--pw-diameter) / 8);
+  right: calc(var(--pw-diameter) / 8);
+}
+
+.item:nth-of-type(7) {
+  bottom: calc(var(--pw-diameter) / 8);
+  left: calc(var(--pw-diameter) / 8);
+}
+
+.item:nth-of-type(8) {
+  bottom: calc(var(--pw-diameter) / 3);
+  left: calc(var(--pw-diameter) / 4);
+}
+
+.divider {
+  background-color: black;
+  height: 2px;
+  margin-top: -2px;
+  width: calc(var(--pw-diameter) - 100px);
+  rotate: calc(45deg * var(--pw-divider-index));
+}
