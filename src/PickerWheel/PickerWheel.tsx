@@ -1,5 +1,5 @@
-import { For, createSignal, Accessor } from 'solid-js';
-import type { Component } from 'solid-js';
+import { For, createSignal, onCleanup, onMount } from 'solid-js';
+import type { Accessor, Component } from 'solid-js';
 
 import pointerImgUrl from '../assets/pointer.png';
 import styles from './PickerWheel.module.css';
@@ -70,6 +70,14 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
     setAngle(angle);
   };
 
+  onMount(() => {
+    window.addEventListener('pointermove', handlePointerMove);
+  });
+
+  onCleanup(() => {
+    window.removeEventListener('pointermove', handlePointerMove);
+  });
+
   return (
     <div
       class={styles.pickerWheel}
@@ -78,7 +86,6 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
         '--pw-angle': angle(),
       }}
       ref={pickerWheelElem}
-      onPointerMove={handlePointerMove}
     >
       <ul class={styles.itemsGroup}>
         <For each={p.items}>
