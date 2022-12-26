@@ -5,6 +5,7 @@
   width: var(--pw-diameter);
   height: var(--pw-diameter);
   place-items: center;
+  rotate: -5deg;
 }
 
 .itemsGroup,
@@ -25,6 +26,8 @@
 .item {
   position: absolute;
   transition: scale 0.2s ease-in-out;
+  transform-origin: 0;
+  rotate: 5deg;
 }
 
 .item:nth-of-type(1) {
@@ -34,12 +37,12 @@
 
 .item:nth-of-type(2) {
   top: calc(var(--pw-diameter) / 8);
-  left: calc(var(--pw-diameter) / 8);
+  left: calc(var(--pw-diameter) / 18);
 }
 
 .item:nth-of-type(3) {
   top: calc(var(--pw-diameter) / 8);
-  right: calc(var(--pw-diameter) / 8);
+  right: calc(var(--pw-diameter) / 18);
 }
 
 .item:nth-of-type(4) {
@@ -53,13 +56,13 @@
 }
 
 .item:nth-of-type(6) {
-  bottom: calc(var(--pw-diameter) / 8);
+  bottom: calc(var(--pw-diameter) / 18);
   right: calc(var(--pw-diameter) / 8);
 }
 
 .item:nth-of-type(7) {
   bottom: calc(var(--pw-diameter) / 8);
-  left: calc(var(--pw-diameter) / 8);
+  left: calc(var(--pw-diameter) / 18);
 }
 
 .item:nth-of-type(8) {
@@ -76,10 +79,10 @@
 }
 
 .divider {
-  background-color: #fff;
-  height: 2px;
-  margin-top: -2px;
-  width: calc(var(--pw-diameter) - 100px);
+  background: linear-gradient(200deg, #000, #fff, #000);
+  height: var(--pw-divider-thickness);
+  margin-top: calc(-1 * var(--pw-divider-thickness));
+  width: var(--pw-diameter);
   rotate: calc(45deg * var(--pw-divider-index));
 }
 
@@ -94,4 +97,5 @@
   display: block;
   width: 50px;
   rotate: 90deg;
+  translate: 10px;
 }

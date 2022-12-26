@@ -53,7 +53,7 @@ const App: Component = () => {
     <div class={styles.App}>
       <header class={styles.header}>Picker Wheel in Days Gone</header>
       <main class={styles.main}>
-        <PickerWheel items={items} diameter="500px" />
+        <PickerWheel items={items} diameter="500px" dividerThickness="2px" />
       </main>
     </div>
   );

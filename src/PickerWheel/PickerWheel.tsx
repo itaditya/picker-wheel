@@ -11,6 +11,7 @@ type PickerWheelItem = {
 
 export type PickerWheelProps = {
   diameter: string;
+  dividerThickness: string;
   items: Array<PickerWheelItem>;
 };
 
@@ -55,8 +56,8 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
 
   const handlePointerMove = (event: MouseEvent) => {
     const pwRect = pickerWheelElem!.getBoundingClientRect();
-    const pwX = pwRect.top + pwRect.height / 2;
-    const pwY = pwRect.left + pwRect.width / 2;
+    const pwX = pwRect.left + pwRect.width / 2;
+    const pwY = pwRect.top + pwRect.height / 2;
 
     const pointerX = event.pageX;
     const pointerY = event.pageY;
@@ -65,6 +66,7 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
     const relY = pwY - pointerY;
 
     const angle = calcAngleDegrees(relX, relY);
+
     setAngle(angle);
   };
 
@@ -102,6 +104,7 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
               class={styles.divider}
               style={{
                 '--pw-divider-index': index(),
+                '--pw-divider-thickness': p.dividerThickness,
               }}
             />
           )}
