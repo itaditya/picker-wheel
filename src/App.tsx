@@ -16,7 +16,7 @@ const getImgUrl = (id: string) => {
 const items = [
   {
     name: 'Bazooka',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('test-img'),
   },
   {
     name: 'Chicago Chopper',
