@@ -72,14 +72,21 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
   };
 
   const controllerLoop = () => {
-    console.log('loop running');
     const gp = navigator.getGamepads()[0]!;
-    console.log(gp.axes);
+    const [lX, lY] = gp.axes;
+
+    const relX = Math.round(lX);
+    const relY = Math.round(-1 * lY);
+
+    const angle = calcAngleDegrees(relX, relY);
+
+    setAngle(angle);
+
+    controllerLoopId = window.requestAnimationFrame(controllerLoop);
   };
 
   const handleControllerConnected = () => {
     controllerLoop();
-    controllerLoopId = window.requestAnimationFrame(controllerLoop);
   };
 
   const handleControllerDisconnected = () => {
