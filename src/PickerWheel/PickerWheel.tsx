@@ -16,6 +16,11 @@ function calcAngleDegrees(x: number, y: number) {
   const radianAngle = Math.atan2(y, x);
   const degreeAngle = (radianAngle * 180) / Math.PI;
   const angle = Math.floor(degreeAngle);
+
+  if (angle < 0) {
+    return angle + 360;
+  }
+
   return angle;
 }
 
@@ -36,7 +41,6 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
     const angleRange = Math.floor(360 / itemsNum);
     const angleFloor = angleRange * index();
     const angleCiel = angleFloor + angleRange;
-    console.log(index(), angleFloor, angleCiel);
 
     const angleValue = angle();
 
@@ -67,6 +71,7 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
       class={styles.pickerWheel}
       style={{
         '--pw-diameter': p.diameter,
+        '--pw-angle': angle(),
       }}
       ref={pickerWheelElem}
       onPointerMove={handlePointerMove}
@@ -100,6 +105,7 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
           )}
         </For>
       </ul>
+      <div class={styles.pointer} />
     </div>
   );
 };
