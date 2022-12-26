@@ -29,6 +29,7 @@ function calcAngleDegrees(x: number, y: number) {
 
 const PickerWheel: Component<PickerWheelProps> = (p) => {
   let pickerWheelElem: HTMLDivElement | undefined;
+  let controllerLoopId: number;
   const [angle, setAngle] = createSignal(0);
 
   const dividers = () => {
@@ -70,12 +71,37 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
     setAngle(angle);
   };
 
+  const controllerLoop = () => {
+    console.log('loop running');
+    const gp = navigator.getGamepads()[0]!;
+    console.log(gp.axes);
+  };
+
+  const handleControllerConnected = () => {
+    controllerLoop();
+    controllerLoopId = window.requestAnimationFrame(controllerLoop);
+  };
+
+  const handleControllerDisconnected = () => {
+    window.cancelAnimationFrame(controllerLoopId);
+  };
+
   onMount(() => {
     window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('gamepadconnected', handleControllerConnected);
+    window.addEventListener(
+      'gamepaddisconnected',
+      handleControllerDisconnected
+    );
   });
 
   onCleanup(() => {
     window.removeEventListener('pointermove', handlePointerMove);
+    window.removeEventListener('gamepadconnected', handleControllerConnected);
+    window.removeEventListener(
+      'gamepaddisconnected',
+      handleControllerDisconnected
+    );
   });
 
   return (
