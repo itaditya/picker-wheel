@@ -24,10 +24,11 @@
 
 .item {
   position: absolute;
+  transition: scale 0.2s ease-in-out;
 }
 
 .activeItem {
-  background-color: green;
+  scale: 1.2;
 }
 
 .item:nth-of-type(1) {
