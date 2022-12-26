@@ -24,7 +24,7 @@ const items = [
   },
   {
     name: 'M-44',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('m_44'),
   },
   {
     name: 'SMP 29',
