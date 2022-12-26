@@ -20,7 +20,7 @@ const items = [
   },
   {
     name: 'Chicago Chopper',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('chicago_chopper'),
   },
   {
     name: 'M-44',
