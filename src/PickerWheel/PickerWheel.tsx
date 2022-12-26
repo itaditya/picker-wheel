@@ -6,6 +6,7 @@ import styles from './PickerWheel.module.css';
 
 type PickerWheelItem = {
   name: string;
+  imgUrl: string;
 };
 
 export type PickerWheelProps = {
@@ -89,7 +90,7 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
                 '--pw-item-index': index(),
               }}
             >
-              {item.name}
+              <img src={item.imgUrl} alt={item.name} class={styles.itemImg} />
             </li>
           )}
         </For>

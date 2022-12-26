@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -10,6 +13,8 @@
 }
 
 .main {
+  flex: 1;
   display: flex;
   justify-content: center;
+  background-color: #000;
 }

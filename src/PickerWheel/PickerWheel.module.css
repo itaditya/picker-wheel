@@ -27,10 +27,6 @@
   transition: scale 0.2s ease-in-out;
 }
 
-.activeItem {
-  scale: 1.2;
-}
-
 .item:nth-of-type(1) {
   top: calc(var(--pw-diameter) / 3);
   left: calc(var(--pw-diameter) / 4);
@@ -71,8 +67,16 @@
   left: calc(var(--pw-diameter) / 4);
 }
 
+.activeItem {
+  scale: 1.5;
+}
+
+.itemImg {
+  width: 100px;
+}
+
 .divider {
-  background-color: black;
+  background-color: #fff;
   height: 2px;
   margin-top: -2px;
   width: calc(var(--pw-diameter) - 100px);
