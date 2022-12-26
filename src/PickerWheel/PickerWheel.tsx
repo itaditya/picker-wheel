@@ -1,6 +1,7 @@
 import { For, createSignal, Accessor } from 'solid-js';
 import type { Component } from 'solid-js';
 
+import pointerImgUrl from '../assets/pointer.png';
 import styles from './PickerWheel.module.css';
 
 type PickerWheelItem = {
@@ -105,7 +106,9 @@ const PickerWheel: Component<PickerWheelProps> = (p) => {
           )}
         </For>
       </ul>
-      <div class={styles.pointer} />
+      <div class={styles.pointer}>
+        <img src={pointerImgUrl} class={styles.pointerImg} />
+      </div>
     </div>
   );
 };
