@@ -28,23 +28,23 @@ const items = [
   },
   {
     name: 'SMP 29',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('test-img'),
   },
   {
     name: 'Grenade',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('test-img'),
   },
   {
     name: 'Smoke',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('test-img'),
   },
   {
     name: 'Molotov',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('test-img'),
   },
   {
     name: 'Proximity Mine',
-    imgUrl: getImgUrl('chicago-chopper'),
+    imgUrl: getImgUrl('test-img'),
   },
 ];
 
